@@ -1,0 +1,37 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.mrkhokh.ToUtf8Plugin</id>
+    <name>ToUtf8Plugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="mr.kh0kh@yandex.ru">mr_khokh</vendor>
+
+    <description><![CDATA[
+        There are cases when old Java files contain multiple encodings — for example, a single file might include both
+        Windows-1251 and UTF-8. In such situations, converting the file to one specific encoding often results in some
+        lines being properly converted while others become corrupted. This plugin helps resolve such issues by safely
+        converting Java files (or entire folders containing Java files) to UTF-8 only.<br>
+
+        <br>Using the plugin is simple: just select a file or folder, right-click it, and choose the "Convert to UTF-8"
+        option — that's it! All lines with different encodings, as well as the file itself, will be correctly detected
+        and converted to UTF-8.<br>
+        <br>
+        For any questions, feel free to contact me via email: <a href="mailto:mr.kh0kh@yandex.ru">mr.kh0kh@yandex.ru</a>
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+    </extensions>
+
+    <actions>
+        <action
+                id = "ProcessConvert2Utf8"
+                class = "com.mrkhokh.toutf8plugin.ProcessConvert2Utf8"
+                text="Convert to Utf-8"
+                description="Allows User to convert java files to Utf-8">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </action>
+    </actions>
+
+</idea-plugin>

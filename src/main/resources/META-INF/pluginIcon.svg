@@ -1,0 +1,14 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <!-- Фон -->
+    <rect x="0" y="0" width="16" height="16" rx="3" fill="#4A90E2"/>
+
+    <!-- Минимальный индикатор UTF-8 -->
+    <text x="2" y="10"
+          text-anchor="end"
+          font-family="sans-serif"
+          font-size="5"
+          fill="white"
+          >
+        2Utf8
+    </text>
+</svg>
