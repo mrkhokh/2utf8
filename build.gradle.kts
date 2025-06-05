@@ -22,6 +22,7 @@ intellij {
 
 dependencies {
     implementation("com.googlecode.juniversalchardet:juniversalchardet:1.0.3")
+    implementation("com.ibm.icu:icu4j:73.1")
 }
 
 tasks {

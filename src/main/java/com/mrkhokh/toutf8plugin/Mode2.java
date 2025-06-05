@@ -33,10 +33,10 @@ public class Mode2 {
     private static void processFileAndFix(Path filepath) {
         try {
             final byte[] fileBytes = Files.readAllBytes(filepath);
-            String detectedFileEncoding = detectEncoding(fileBytes);
+            /*String detectedFileEncoding = detectEncoding(fileBytes);
             if (StandardCharsets.UTF_8.name().equalsIgnoreCase(detectedFileEncoding)) {
                 return;
-            }
+            }*/
 
             List<byte[]> lineByBytesList = splitBytesByLines(fileBytes);
             List<String> processedLines = new ArrayList<>();
