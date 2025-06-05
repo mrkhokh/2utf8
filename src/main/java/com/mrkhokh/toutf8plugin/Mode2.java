@@ -44,9 +44,9 @@ public class Mode2 {
             for (byte[] linesBytes : lineByBytesList) {
                 String encoding = detectEncoding(linesBytes);
 
-                if (!StandardCharsets.UTF_8.name().equalsIgnoreCase(encoding)) {
-                    encoding = WINDOWS_1251;
-                }
+//                if (!StandardCharsets.UTF_8.name().equalsIgnoreCase(encoding)) {
+//                    encoding = WINDOWS_1251;
+//                }
                 String processedLine = new String(linesBytes, encoding);
                 processedLines.add(processedLine);
             }
