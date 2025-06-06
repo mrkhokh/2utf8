@@ -12,6 +12,7 @@ import java.util.List;
 
 import static com.mrkhokh.toutf8plugin.ModeUtils.detectEncoding;
 import static com.mrkhokh.toutf8plugin.ModeUtils.splitBytesByLines;
+import static com.mrkhokh.toutf8plugin.ProcessConvert2Utf8.WINDOWS_1251;
 
 public class Mode2 {
 
@@ -43,9 +44,9 @@ public class Mode2 {
             for (byte[] linesBytes : lineByBytesList) {
                 String encoding = detectEncoding(linesBytes);
 
-//                if (!StandardCharsets.UTF_8.name().equalsIgnoreCase(encoding)) {
-//                    encoding = WINDOWS_1251;
-//                }
+                if (!StandardCharsets.UTF_8.name().equalsIgnoreCase(encoding)) {
+                    encoding = WINDOWS_1251;
+                }
                 String processedLine = new String(linesBytes, encoding);
                 processedLines.add(processedLine);
             }
