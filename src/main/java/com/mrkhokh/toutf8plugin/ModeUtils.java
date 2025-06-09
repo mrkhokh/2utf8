@@ -2,6 +2,7 @@ package com.mrkhokh.toutf8plugin;
 
 import com.ibm.icu.text.CharsetDetector;
 import com.ibm.icu.text.CharsetMatch;
+import com.intellij.openapi.vfs.VirtualFile;
 import org.mozilla.universalchardet.UniversalDetector;
 
 import java.nio.charset.StandardCharsets;
@@ -57,5 +58,9 @@ public class ModeUtils {
         String encoding = detector.getDetectedCharset();
         detector.reset();
         return encoding != null ? encoding : StandardCharsets.UTF_8.name();
+    }
+
+    public static boolean isJavaFile(VirtualFile file) {
+        return file != null && !file.isDirectory() && "java".equals(file.getExtension());
     }
 }

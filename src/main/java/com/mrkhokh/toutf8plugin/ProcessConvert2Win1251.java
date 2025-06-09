@@ -15,8 +15,7 @@ import java.util.List;
 
 import static com.mrkhokh.toutf8plugin.ModeUtils.isJavaFile;
 
-public class ProcessConvert2Utf8 extends AnAction {
-    public static final String WINDOWS_1251 = "Windows-1251";
+public class ProcessConvert2Win1251 extends AnAction {
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -39,7 +38,7 @@ public class ProcessConvert2Utf8 extends AnAction {
             return;
         }
 
-        new Task.Backgroundable(project, "Converting java files to utf-8", true) {
+        new Task.Backgroundable(project, "Converting java files to windows-1251", true) {
 
             @Override
             public void run(@NotNull ProgressIndicator indicator) {
@@ -54,7 +53,7 @@ public class ProcessConvert2Utf8 extends AnAction {
                     indicator.setText("Processing file " + file.getName());
                     indicator.setFraction((double) i / (double) totalFiles);
 
-                    EncodingConverter.convertToUtf8(file.getPath());
+                    EncodingConverter.convertToWindows1251(file.getPath());
                 }
             }
 
@@ -86,5 +85,4 @@ public class ProcessConvert2Utf8 extends AnAction {
             }
         }
     }
-
 }

@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.mrkhokh.Win1251ToUtf8</id>
     <name>Win1251ToUtf8</name>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="mr.kh0kh@yandex.ru">mr_khokh</vendor>
@@ -26,12 +26,24 @@
     </extensions>
 
     <actions>
-        <action
-                id = "ProcessConvert2Utf8"
-                class = "com.mrkhokh.toutf8plugin.ProcessConvert2Utf8"
-                text="Convert to Utf-8"
-                description="Allows User to convert java files to Utf-8">
+        <group id="EncodingConverter.Group"
+               text="Encoding Converter"
+               description="Convert files to different encodings">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+        </group>
+
+        <action id="ProcessConvert2Utf8"
+                class="com.mrkhokh.toutf8plugin.ProcessConvert2Utf8"
+                text="Convert to UTF-8"
+                description="Allows User to convert java files to Utf-8">
+            <add-to-group group-id="EncodingConverter.Group" anchor="first"/>
+        </action>
+
+        <action id="ProcessConvert2Win1251"
+                class="com.mrkhokh.toutf8plugin.ProcessConvert2Win1251"
+                text="Convert to Windows-1251"
+                description="Allows User to convert java files to Windows-1251">
+            <add-to-group group-id="EncodingConverter.Group" anchor="last"/>
         </action>
     </actions>
 
