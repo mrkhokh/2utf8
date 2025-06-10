@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.mrkhokh.Win1251ToUtf8</id>
     <name>Win1251ToUtf8</name>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
     <vendor email="mr.kh0kh@yandex.ru">mr_khokh</vendor>
