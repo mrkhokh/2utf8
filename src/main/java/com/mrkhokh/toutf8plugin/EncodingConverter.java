@@ -48,10 +48,10 @@ public class EncodingConverter {
     private static void processFileAndFix(Path filepath, String sourceEncoding, String targetEncoding) {
         try {
             final byte[] fileBytes = Files.readAllBytes(filepath);
-            /*String detectedFileEncoding = detectEncoding(fileBytes);
+            String detectedFileEncoding = detectEncoding(fileBytes);
             if (targetEncoding.equalsIgnoreCase(detectedFileEncoding)) {
                 return;
-            }*/
+            }
 
             List<byte[]> lineByBytesList = splitBytesByLines(fileBytes);
             List<String> processedLines = new ArrayList<>();
