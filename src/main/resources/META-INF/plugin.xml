@@ -20,6 +20,24 @@
         For any questions, feel free to contact me via email: <a href="mailto:mr.kh0kh@yandex.ru">mr.kh0kh@yandex.ru</a>
     ]]></description>
 
+    <change-notes><![CDATA[
+        <h2>Version 1.0.3</h2>
+        <ul>
+            <li>Automatically converts files from Windows-1251 encoding to UTF-8.</li>
+        </ul>
+
+        <h2>Version 1.0.4</h2>
+        <ul>
+            <li>Added support for two-way file conversion: you can now convert files from UTF-8 to Windows-1251 and vice versa.</li>
+            <li>A new menu section has been added with two options:
+                <ul>
+                    <li><strong>Convert to UTF-8</strong></li>
+                    <li><strong>Convert to Windows-1251</strong></li>
+                </ul>
+            </li>
+        </ul>
+    ]]></change-notes>
+
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
