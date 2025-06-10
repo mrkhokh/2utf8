@@ -2,7 +2,9 @@ package com.mrkhokh.toutf8plugin;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.nio.charset.Charset;
+import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -55,19 +57,31 @@ public class EncodingConverter {
             List<String> processedLines = new ArrayList<>();
 
             for (byte[] linesBytes : lineByBytesList) {
-                String encoding = detectEncoding(linesBytes);
+                String detectedEncoding = detectEncoding(linesBytes);
 
+                String encoding = detectedEncoding;
                 if (!targetEncoding.equalsIgnoreCase(encoding)) {
                     encoding = sourceEncoding;
                 }
                 String processedLine = new String(linesBytes, encoding);
+                boolean isSupported = Charset.forName(encoding).newEncoder().canEncode(processedLine);
+                if (!isSupported) {
+                    processedLine = new String(linesBytes, detectedEncoding);
+                }
                 processedLines.add(processedLine);
             }
             if (!processedLines.isEmpty()) {
-                try (BufferedWriter writer = Files.newBufferedWriter(
-                        filepath,
-                        Charset.forName(targetEncoding),
-                        StandardOpenOption.CREATE
+                try (BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(
+                                Files.newOutputStream(
+                                        filepath,
+                                        StandardOpenOption.CREATE,
+                                        StandardOpenOption.TRUNCATE_EXISTING
+                                ),
+                                Charset.forName(targetEncoding).newEncoder()
+                                        .onUnmappableCharacter(CodingErrorAction.REPLACE)
+                                        .onMalformedInput(CodingErrorAction.REPLACE)
+                        )
                 )) {
                     for (int i = 0; i < processedLines.size(); i++) {
                         String processedLine = processedLines.get(i);

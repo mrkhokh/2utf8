@@ -9,6 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mrkhokh.toutf8plugin.ProcessConvert2Utf8.WINDOWS_1251;
+
 public class ModeUtils {
 
     public static String getLineEncoding(byte[] bytes) {
@@ -57,6 +59,10 @@ public class ModeUtils {
 
         String encoding = detector.getDetectedCharset();
         detector.reset();
+
+        if ("MACCYRILLIC".equalsIgnoreCase(encoding)) {
+            encoding = WINDOWS_1251;
+        }
         return encoding != null ? encoding : StandardCharsets.UTF_8.name();
     }
 

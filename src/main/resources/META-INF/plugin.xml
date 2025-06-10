@@ -28,7 +28,8 @@
     <actions>
         <group id="EncodingConverter.Group"
                text="Encoding Converter"
-               description="Convert files to different encodings">
+               description="Convert files to different encodings"
+               popup="true">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
         </group>
 
